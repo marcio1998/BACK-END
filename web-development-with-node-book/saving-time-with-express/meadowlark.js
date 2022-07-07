@@ -1,5 +1,7 @@
 var express = require('express');
 var handlebars = require('express3-handlebars').create({defaultLayout: 'main'});
+// ./ -> inidicates not to look into node_modules
+var fortune = require('./lib/fortune');;
 
 var app = express();
 
@@ -24,8 +26,8 @@ app.get('/', function(req, res){
 app.get('/about', function(req, res){
     // res.type('text/plain');
     // res.send('About Meadowlar Travel');
-    let randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)]
-    res.render('about', {fortune: randomFortune});
+    //let randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)]
+    res.render('about', {fortune: fortune.getFortune()});
 });
 
 //static files
