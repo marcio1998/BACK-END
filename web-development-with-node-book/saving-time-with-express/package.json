@@ -1,0 +1,15 @@
+{
+  "name": "saving-time-with-express",
+  "version": "1.0.0",
+  "description": "Meadowlark project",
+  "main": "meadowlark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express3-handlebars": "^0.5.2"
+  }
+}
