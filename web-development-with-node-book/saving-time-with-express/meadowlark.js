@@ -10,11 +10,17 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', process.env.PORT || 3000);
 
-const fortunes = [
-    'Conquer your fears or the will conquer you !',
-    'Rivers need spring',
-    "Don't fear what you don't know"
-]
+// const fortunes = [
+//     'Conquer your fears or the will conquer you !',
+//     'Rivers need spring',
+//     "Don't fear what you don't know"
+// ]
+
+//set test page
+app.use(function(req, res, next){
+    res.locals.showTests = app.get('env') !== 'production' && req.query.test === '1';
+    next();
+})
 
 //default status code is 200
 app.get('/', function(req, res){
@@ -28,6 +34,8 @@ app.get('/about', function(req, res){
     // res.send('About Meadowlar Travel');
     //let randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)]
     res.render('about', {fortune: fortune.getFortune()});
+    //test
+    pageTestScript: '/qa/tests-about.js'
 });
 
 //static files
