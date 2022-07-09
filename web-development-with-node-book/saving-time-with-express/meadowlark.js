@@ -33,9 +33,11 @@ app.get('/about', function(req, res){
     // res.type('text/plain');
     // res.send('About Meadowlar Travel');
     //let randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)]
-    res.render('about', {fortune: fortune.getFortune()});
+    res.render('about', {
+        fortune: fortune.getFortune(),
+        pageTestScript: '/qa/tests-about.js'});
     //test
-    pageTestScript: '/qa/tests-about.js'
+    
 });
 
 //static files
