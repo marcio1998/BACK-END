@@ -40,6 +40,14 @@ app.get('/about', function(req, res){
     
 });
 
+app.get('/tours/hood-rivers', function(req, res){
+    res.render('tours/hood-river');
+});
+
+app.get('/tours/request-group-rate', function(req, res){
+    res.render('tours/request-group-rate');
+});
+
 //static files
 app.use(express.static(__dirname + '/public'))
 
