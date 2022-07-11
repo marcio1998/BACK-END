@@ -7,7 +7,7 @@ const app = express();
 app.engine('handlebars', handlebars.engine);
 //set PORT
 app.set('port', process.env.PORT || 3000);
-//use handlebars
+//set handlebaras as view engine
 app.set('view engine','handlebars');
 //static files
 app.use(express.static(__dirname + '/public'));
