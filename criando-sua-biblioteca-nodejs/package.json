@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest ./test",
+    "cli": "node cli.js ./arquivos/texto1.md"
   },
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
-    "chalk": "^5.0.1"
+    "chalk": "^4.1.0",
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3"
   }
 }

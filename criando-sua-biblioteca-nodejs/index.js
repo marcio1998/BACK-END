@@ -1,5 +1,5 @@
-import chalk from 'chalk';
-import fs from 'fs';
+const chalk = require('chalk');
+const fs = require('fs');   
 
 
 function extrairLink(texto){
@@ -13,7 +13,7 @@ function extrairLink(texto){
     }
     // const linksExtraidos = regex.exec(texto);
     // console.log(linksExtraidos);
-    return arrayResultados;
+    return arrayResultados.length == 0 ? 'Não Há Links' : arrayResultados;
 }
 
 function tratarErro(erro){
@@ -26,14 +26,15 @@ async function pegaArquivo(caminhoDoArquivo){
     const encoding = 'utf-8';
     try{
         const texto = await fs.promises.readFile(caminhoDoArquivo,encoding);
-        console.log(extrairLink(texto));
+        return extrairLink(texto);
     }catch(erro){
         tratarErro(erro);
     }
 }
 
-pegaArquivo('arquivos/texto1.md')
+//pegaArquivo('arquivos/texto1.md')
 
+module.exports = pegaArquivo;
 
 // function pegaArquivo(caminhoDoArquivo){
 //     const encoding = 'utf-8';
