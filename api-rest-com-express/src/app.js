@@ -1,5 +1,6 @@
 import express from 'express';
 import db from './config/dbConnect.js';
+import routes from './routes/routes.js';
 
 db.on("error", console.log.bind(console,'Erro de Conexão'));
 db.once("open", ()=>{
@@ -7,34 +8,11 @@ db.once("open", ()=>{
 })
 const app = express();
 app.use(express.json());
-
-const livros = [
-    {
-        "id":1,
-        "titulo": "O Candido"
-    },
-    {
-        "id":2,
-        "titulo": "Harry Potter A Câmara Secreta"
-    }
-];
-
-app.get('/', (req, res)=>{
-    res.status(200).send('Curso de Node !');
-});
-
-app.get('/livros', (req, res)=>{
-    res.status(200).json(livros);
-});
+routes(app);
 
 app.get('/livros/:id', (req, res)=>{
     let indice = buscaLivro(req.params.id);
     res.status(201).json(livros[indice]);
-});
-
-app.post('/livros', (req, res)=>{
-    livros.push(req.body)
-    res.status(201).send('Livro Cadastrado com Sucesso !!');
 });
 
 app.put('/livros/:id', (req, res)=>{
