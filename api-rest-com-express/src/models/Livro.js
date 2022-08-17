@@ -4,9 +4,8 @@ const livroSchema = new mongoose.Schema(
     {
         id: {type: String},
         titulo: {type: String, required: true},
-        autor: {type: String, required: true},
-        editor: {type: String, required: true},
-        editor: {type: Number},
+        autor: {type: mongoose.Schema.Types.ObjectId, ref: 'autores', required: true},
+        editor: {type: String, required: true}
     }
 );
 

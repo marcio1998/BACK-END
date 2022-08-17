@@ -2,20 +2,14 @@ import express from 'express';
 import chalk from 'chalk';
 import db from './config/db.js'
 
+import routes from './routes/Routes.js';
+
 const app = express();
 
-db.on('error', console.log.bind(chalk.red('Databse Connection Error'),console))
-db.once('open', ()=>{
-    console.log(chalk.green('Database Connection Successfull'))
-})
+db.on('error', console.log.bind(chalk.red('Erro de Conexão com o banco de dados: '), console))
+db.once('open', () => {
+    console.log(chalk.green('Conexão com o banco sucedida'))
+});
 
-
-app.use((req, res)=>{
-    res.status(404).send('Error 404');
-})
-
-
-
-
-
+routes(app);
 export default app;
