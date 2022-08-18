@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const imovelSchema = new mongoose.Schema(
     {
-        id: { type: String, required: true },
+        id: { type: String},
         tipo_imovel: { type: String, required: true },
         numero_quartos: { type: Number, required: true },
         numero_banheiros: { type: Number, required: true },

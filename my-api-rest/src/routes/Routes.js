@@ -1,6 +1,6 @@
 import express from 'express';
-
 import cidadeRoute from './cidadeRoute.js';
+import ImovelRoute from './ImovelRoute.js';
 
 
 const routes = (app => {
@@ -11,7 +11,8 @@ const routes = (app => {
     app.use(
         express.urlencoded({extended:false}),
         express.json(),
-        cidadeRoute
+        cidadeRoute,
+        ImovelRoute
     );
 
     app.use((req, res) => {
